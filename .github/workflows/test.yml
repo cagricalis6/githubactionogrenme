@@ -1,8 +1,8 @@
-name:  Test Pipeline
+name: Test Pipeline
 on:
   push:
-    branches:
-    -  main
+    branches: 
+    - main
   workflow_dispatch:
 
 env:
@@ -10,15 +10,28 @@ env:
 
 jobs:
   test:
-    runs-on:  ubuntu-latest
+    runs-on: ubuntu-latest
     env:
       SELAMLAMA: Hello
-
     steps:
-    -  name: Osman Env Tanimlama
-       run: |
+    - name: Checkout Adimi 
+      uses: actions/checkout@v4
+    - name: Osman Env Tanimlama
+      run: |   
         echo "Hello World"
-        echo "$DAY_OF_WEEK"
-        env:
-          OSMAN : "Bu osman bizim osman bu adimda tanimlandi" 
-      
+        echo $OSMAN
+      env:
+       OSMAN : "Bu Osman Bizim Osman bunu adımda tanımladım"
+    - name: Bu da bir baska adim
+      run: |
+        echo $DAY_OF_WEEK
+        echo $SELAMLAMA
+        echo $OSMAN 
+  test2:
+    runs-on: ubuntu-latest
+    steps:
+     - name: ayrı jobdaki adim
+       run: |
+        echo $DAY_OF_WEEK
+        echo $SELAMLAMA
+        echo $OSMAN
