@@ -5,14 +5,20 @@ on:
     -  main
   workflow_dispatch:
 
+env:
+  DAY_OF_WEEK: Monday
+
 jobs:
   test:
     runs-on:  ubuntu-latest
+    env:
+      SELAMLAMA: Hello
 
     steps:
-    -  name:  Checkout Adimi
-        uses:  actions/checkout@v4
-    -  name: Enviroment Variable Listeleme
-      run: printenv
-        
+    -  name: Osman Env Tanimlama
+       run: |
+        echo "Hello World"
+        echo $OSMAN
+        env:
+          OSMAN : "Bu osman bizim osman bu adimda tanimlandi" 
       
