@@ -18,7 +18,7 @@ jobs:
     -  name: Osman Env Tanimlama
        run: |
         echo "Hello World"
-        echo $OSMAN
+        echo $SELAMLAMA
         env:
           OSMAN : "Bu osman bizim osman bu adimda tanimlandi" 
       
